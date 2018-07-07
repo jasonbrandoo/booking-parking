@@ -1,0 +1,25 @@
+{
+  "name": "booking-parking",
+  "version": "1.0.0",
+  "description": "Booking Parking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonbrandoo/booking-parking.git"
+  },
+  "author": "Jason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonbrandoo/booking-parking/issues"
+  },
+  "homepage": "https://github.com/jasonbrandoo/booking-parking#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.1",
+    "morgan": "^1.9.0"
+  }
+}
