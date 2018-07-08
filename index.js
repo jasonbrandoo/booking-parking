@@ -8,6 +8,12 @@ const parking = require('./routes/api/parking');
 
 const app = express();
 
+const db = require('./config/config').mongoURI;
+mongoose
+  .connect(db)
+  .then(() => console.log('connected to database'))
+  .catch(err => console.log(err));
+
 app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
