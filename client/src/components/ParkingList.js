@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ParkingForm from './PakingForm';
+import { connect } from 'react-redux';
+import { parkingCar } from '../actions/carAction';
+import PropTypes from 'prop-types';
 import {
   Container,
   Card,
@@ -12,6 +15,9 @@ import {
 } from 'reactstrap';
 
 class ParkingList extends Component {
+  componentDidMount() {
+    this.props.parkingCar();
+  }
   render() {
     return (
       <div>
@@ -61,4 +67,16 @@ class ParkingList extends Component {
   }
 }
 
-export default ParkingList;
+ParkingList.propTypes = {
+  parkingCar: PropTypes.func.isRequired,
+  car: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  car: state.car
+});
+
+export default connect(
+  mapStateToProps,
+  { parkingCar }
+)(ParkingList);
