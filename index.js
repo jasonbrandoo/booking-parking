@@ -4,10 +4,11 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 const parking = require('./routes/api/parking');
+const db = require('./config/config').mongoURI;
 
 const app = express();
 
-const db = require('./config/config').mongoURI;
+
 mongoose
   .connect(db)
   .then(() => console.log('connected to database'))

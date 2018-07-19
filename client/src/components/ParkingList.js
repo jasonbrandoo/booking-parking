@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import ParkingForm from './PakingForm';
 import { connect } from 'react-redux';
-import { parkingCar } from '../actions/carAction';
-import PropTypes from 'prop-types';
 import {
   Container,
   Card,
@@ -15,16 +12,13 @@ import {
 } from 'reactstrap';
 
 class ParkingList extends Component {
-  componentDidMount() {
-    this.props.parkingCar();
-  }
   render() {
+    console.log(this.props);
     return (
       <div>
         <Container>
-          <ParkingForm />
           <Row className="text-center">
-            <Col sm="3">
+            <Col sm="2">
               <h1>1</h1>
               <Card color="success">
                 <CardBody>
@@ -33,7 +27,7 @@ class ParkingList extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col sm="3">
+            <Col sm="2">
               <h1>2</h1>
               <Card color="success">
                 <CardBody>
@@ -42,7 +36,7 @@ class ParkingList extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col sm="3">
+            <Col sm="2">
               <h1>3</h1>
               <Card color="success">
                 <CardBody>
@@ -51,7 +45,7 @@ class ParkingList extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col sm="3">
+            <Col sm="2">
               <h1>4</h1>
               <Card color="success">
                 <CardBody>
@@ -67,16 +61,11 @@ class ParkingList extends Component {
   }
 }
 
-ParkingList.propTypes = {
-  parkingCar: PropTypes.func.isRequired,
-  car: PropTypes.object.isRequired
+const mapStateToProps = state => {
+  return state;
 };
-
-const mapStateToProps = state => ({
-  car: state.car
-});
 
 export default connect(
   mapStateToProps,
-  { parkingCar }
+  null
 )(ParkingList);
