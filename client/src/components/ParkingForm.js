@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
-import { carIn } from '../actions/carAction';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import {
+  Form, FormGroup, Label, Input, Button,
+} from 'reactstrap';
+import { carIn } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
+    owner: '',
     carName: '',
     plateNumber: '',
-    startTime: ''
+    selection: '',
+    startTime: '',
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
-
+    const {
+      owner, carName, plateNumber, selection, startTime,
+    } = this.state;
     const newCar = {
-      owner: this.state.owner,
-      carName: this.state.carName,
-      plateNumber: this.state.plateNumber,
-      startTime: this.state.startTime
+      owner,
+      carName,
+      plateNumber,
+      selection,
+      startTime,
     };
 
     this.props.carIn(newCar);
@@ -35,68 +41,93 @@ class ParkingForm extends Component {
       <Form onSubmit={this.onSubmit}>
         <FormGroup>
           <Label>
-            Enter Your Name
-            <Input
-              type="text"
-              name="owner"
-              placeholder="Your Name"
-              onChange={this.onChange}
-              required
-            />
+          Enter Your Name
           </Label>
+          <Input
+            type="text"
+            name="owner"
+            placeholder="Your Name"
+            onChange={this.onChange}
+            required
+          />
         </FormGroup>
         <FormGroup>
           <Label>
-            Car Name
-            <Input
-              type="text"
-              name="carName"
-              placeholder="Car's Name"
-              onChange={this.onChange}
-              required
-            />
+          Car Name
           </Label>
+          <Input
+            type="text"
+            name="carName"
+            placeholder="Car's Name"
+            onChange={this.onChange}
+            required
+          />
         </FormGroup>
         <FormGroup>
           <Label>
-            Plate Number
-            <Input
-              type="text"
-              name="plateNumber"
-              placeholder="Plate Number"
-              onChange={this.onChange}
-              required
-            />
+          Plate Number
           </Label>
+          <Input
+            type="text"
+            name="plateNumber"
+            placeholder="Plate Number"
+            onChange={this.onChange}
+            required
+          />
         </FormGroup>
         <FormGroup>
           <Label>
-            Start Time
-            <Input
-              type="time"
-              name="startTime"
-              placeholder="Start Time"
-              onChange={this.onChange}
-              required
-            />
+          Choose Your Slot
           </Label>
+          <br />
+          <select name="selection" onChange={this.onChange}>
+            <option value="1">
+            One
+            </option>
+            <option value="2">
+            Two
+            </option>
+            <option value="3">
+            Three
+            </option>
+            <option value="4">
+            Four
+            </option>
+            <option value="5">
+            Five
+            </option>
+            <option value="6">
+            Six
+            </option>
+            <option value="7">
+            Seven
+            </option>
+            <option value="8">
+            Nine
+            </option>
+          </select>
         </FormGroup>
-        <Button color="dark">Submit</Button>
+        <FormGroup>
+          <Label>
+          Start Time
+          </Label>
+          <Input
+            type="time"
+            name="startTime"
+            placeholder="Start Time"
+            onChange={this.onChange}
+            required
+          />
+        </FormGroup>
+        <Button color="dark">
+        Submit
+        </Button>
       </Form>
     );
   }
 }
 
-ParkingForm.propTypes = {
-  carIn: PropTypes.func.isRequired,
-  carData: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  carData: state.carData
-});
-
 export default connect(
-  mapStateToProps,
-  { carIn }
+  null,
+  { carIn },
 )(ParkingForm);

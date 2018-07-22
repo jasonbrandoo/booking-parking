@@ -1,14 +1,14 @@
 const express = require('express');
-const route = express.Router();
-
 const Parking = require('../../models/Parking');
+
+const route = express.Router();
 
 route.get('/', (req, res) => {
   Parking.find()
-    .then(result => {
+    .then((result) => {
       res.json(result);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
     });
 });
@@ -19,32 +19,32 @@ route.post('/', (req, res) => {
     car: [
       {
         carName: req.body.car[0].carName,
-        plateNumber: req.body.car[0].plateNumber
-      }
+        plateNumber: req.body.car[0].plateNumber,
+      },
     ],
     slot: [
       {
         slotNumber: req.body.slot[0].slotNumber,
-        startTime: req.body.slot[0].startTime
-      }
-    ]
+        startTime: req.body.slot[0].startTime,
+      },
+    ],
   });
-  parking.save().then(result => {
+  parking.save().then((result) => {
     res.json(result);
   });
 });
 
 route.delete('/:id', (req, res) => {
   Parking.findById(req.params.id)
-    .then(result => {
+    .then((result) => {
       result.remove();
     })
     .then(() => {
       res.json({
-        success: true
+        success: true,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
     });
 });

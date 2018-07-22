@@ -8,7 +8,6 @@ const db = require('./config/config').mongoURI;
 
 const app = express();
 
-
 mongoose
   .connect(db)
   .then(() => console.log('connected to database'))
