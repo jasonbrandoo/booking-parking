@@ -1,49 +1,14 @@
-.row-1 {
+.grid-container {
   margin-top: 50px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.box-1 {
+.grid-item {
   background-color: rgb(0, 255, 0);
-}
-
-.box-2 {
-  background-color: rgb(0, 255, 0);
-}
-
-.box-3 {
-  background-color: rgb(0, 255, 0);
-}
-
-.box-4 {
-  background-color: rgb(0, 255, 0);
-}
-
-.row-2 {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.box-5 {
-  background-color: rgb(0, 255, 0);
-}
-
-.box-6 {
-  background-color: rgb(0, 255, 0);
-}
-
-.box-7 {
-  background-color: rgb(0, 255, 0);
-}
-
-.box-8 {
-  background-color: rgb(0, 255, 0);
-}
-
-.row-1 div,
-.row-2 div {
-  padding: 30px;
-  margin: 5px;
+  border: 1px solid;
+  border-radius: 7px;
+  text-align: center;
+  padding: 20px;
 }

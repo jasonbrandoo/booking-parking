@@ -2,6 +2,7 @@ import { PARKING_CAR, CAR_IN } from '../actions/types';
 
 const initialState = {
   cars: [],
+  parked: [],
 };
 
 export default function (state = initialState, action) {
@@ -9,11 +10,12 @@ export default function (state = initialState, action) {
     case PARKING_CAR:
       return {
         ...state,
+        parked: [...state.parked, action.payload],
       };
     case CAR_IN:
       return {
         ...state,
-        cars: [action.payload, ...state.cars],
+        cars: [...state.cars, action.payload],
       };
     default:
       return state;

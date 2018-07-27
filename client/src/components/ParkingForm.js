@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
-import { carIn } from '../actions/carAction';
+import { carIn, parkingCar } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
@@ -34,6 +34,7 @@ class ParkingForm extends Component {
     };
 
     this.props.carIn(newCar);
+    this.props.parkingCar('booked');
   };
 
   render() {
@@ -77,38 +78,6 @@ class ParkingForm extends Component {
         </FormGroup>
         <FormGroup>
           <Label>
-          Choose Your Slot
-          </Label>
-          <br />
-          <select name="selection" onChange={this.onChange}>
-            <option value="1">
-            One
-            </option>
-            <option value="2">
-            Two
-            </option>
-            <option value="3">
-            Three
-            </option>
-            <option value="4">
-            Four
-            </option>
-            <option value="5">
-            Five
-            </option>
-            <option value="6">
-            Six
-            </option>
-            <option value="7">
-            Seven
-            </option>
-            <option value="8">
-            Nine
-            </option>
-          </select>
-        </FormGroup>
-        <FormGroup>
-          <Label>
           Start Time
           </Label>
           <Input
@@ -129,5 +98,5 @@ class ParkingForm extends Component {
 
 export default connect(
   null,
-  { carIn },
+  { carIn, parkingCar },
 )(ParkingForm);
