@@ -3,26 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const parkingSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  car: [
+  carData: [
     {
+      carOwner: {
+        type: String,
+        required: true,
+      },
       carName: {
         type: String,
         required: true,
       },
       plateNumber: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
-  slot: [
-    {
-      slotNumber: {
-        type: Number,
+        type: String,
         required: true,
       },
       startTime: {

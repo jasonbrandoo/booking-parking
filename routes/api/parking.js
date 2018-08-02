@@ -15,17 +15,12 @@ route.get('/', (req, res) => {
 
 route.post('/', (req, res) => {
   const parking = new Parking({
-    name: req.body.name,
-    car: [
+    carData: [
       {
-        carName: req.body.car[0].carName,
-        plateNumber: req.body.car[0].plateNumber,
-      },
-    ],
-    slot: [
-      {
-        slotNumber: req.body.slot[0].slotNumber,
-        startTime: req.body.slot[0].startTime,
+        carOwner: req.body.carData[0].carOwner,
+        carName: req.body.carData[0].carName,
+        plateNumber: req.body.carData[0].plateNumber,
+        startTime: req.body.carData[0].startTime,
       },
     ],
   });

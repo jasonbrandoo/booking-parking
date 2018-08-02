@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { parkingCar } from '../actions/carAction';
 
 class ParkingList extends Component {
-  state = {
-    fill: false,
-  };
+  componentDidMount() {
+    this.props.parkingCar();
+  }
 
   render() {
     const { carData } = this.props;
@@ -14,9 +15,11 @@ class ParkingList extends Component {
           {
             carData.map(car => (
               <div className="grid-item">
-                <p>
-                  {car.owner}
-                </p>
+                {car.carData.map(data => (
+                  <p>
+                    {data.carOwner}
+                  </p>
+                ))}
               </div>
             ))
           }
@@ -27,7 +30,7 @@ class ParkingList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state', state.carData);
+  console.log(state.carData.cars);
   return {
     carData: state.carData.cars,
     parkingData: state.carData.parked,
@@ -36,5 +39,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  null,
+  { parkingCar },
 )(ParkingList);

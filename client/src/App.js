@@ -16,7 +16,6 @@ class App extends Component {
         <div className="App">
           <AppNavbar />
           <Container>
-            <ParkingImage />
             <Row>
               <Col sm="6">
                 <ParkingForm />

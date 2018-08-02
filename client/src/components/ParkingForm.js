@@ -7,10 +7,9 @@ import { carIn, parkingCar } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
-    owner: '',
+    carOwner: '',
     carName: '',
     plateNumber: '',
-    selection: '',
     startTime: '',
   };
 
@@ -33,8 +32,13 @@ class ParkingForm extends Component {
       startTime,
     };
 
-    this.props.carIn(newCar);
-    this.props.parkingCar('booked');
+    if (window.confirm('Are you sure')) {
+      alert('Success');
+      this.props.carIn(newCar);
+      this.props.parkingCar('booked');
+    } else {
+      alert('Aborted');
+    }
   };
 
   render() {

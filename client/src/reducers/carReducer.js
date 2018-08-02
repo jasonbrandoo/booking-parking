@@ -1,8 +1,8 @@
-import { PARKING_CAR, CAR_IN } from '../actions/types';
+import { PARKING_CAR, CAR_IN, CAR_LOADING } from '../actions/types';
 
 const initialState = {
   cars: [],
-  parked: [],
+  loading: false,
 };
 
 export default function (state = initialState, action) {
@@ -10,12 +10,18 @@ export default function (state = initialState, action) {
     case PARKING_CAR:
       return {
         ...state,
-        parked: [...state.parked, action.payload],
+        cars: action.payload,
+        loading: false,
       };
     case CAR_IN:
       return {
         ...state,
         cars: [...state.cars, action.payload],
+      };
+    case CAR_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;
