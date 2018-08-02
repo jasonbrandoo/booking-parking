@@ -6,13 +6,15 @@ export const parkingCar = () => (dispatch) => {
   axios.get('parking/').then(res => dispatch({
     type: PARKING_CAR,
     payload: res.data,
-  })).catch(err => console.log(err));
+  })).catch(error => console.log(error));
 };
 
-export const carIn = data => ({
-  type: CAR_IN,
-  payload: data,
-});
+export const carIn = car => (dispatch) => {
+  axios.post('parking/', car).then(res => dispatch({
+    type: CAR_IN,
+    payload: res.data,
+  })).catch(error => console.log(error));
+};
 
 export const setCarLoading = () => ({
   type: CAR_LOADING,

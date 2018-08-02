@@ -22,20 +22,22 @@ class ParkingForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const {
-      owner, carName, plateNumber, selection, startTime,
+      carOwner, carName, plateNumber, startTime,
     } = this.state;
     const newCar = {
-      owner,
-      carName,
-      plateNumber,
-      selection,
-      startTime,
+      carData: [{
+        carOwner,
+        carName,
+        plateNumber,
+        startTime,
+      }],
     };
 
     if (window.confirm('Are you sure')) {
       alert('Success');
       this.props.carIn(newCar);
       this.props.parkingCar('booked');
+      console.log(newCar);
     } else {
       alert('Aborted');
     }
@@ -50,7 +52,7 @@ class ParkingForm extends Component {
           </Label>
           <Input
             type="text"
-            name="owner"
+            name="carOwner"
             placeholder="Your Name"
             onChange={this.onChange}
             required
