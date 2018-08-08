@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import AppNavbar from './components/AppNavbar';
-import ParkingForm from './components/ParkingForm';
+// import AppFooter from './components/AppFooter';
+import ModalConfirmation from './components/ModalConfirmation';
 import ParkingList from './components/ParkingList';
 import ParkingImage from './components/ParkingImage';
 import './App.css';
@@ -15,10 +16,11 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <AppNavbar />
+          <ParkingImage />
           <Container>
             <Row>
               <Col sm="6">
-                <ParkingForm />
+                <ModalConfirmation />
               </Col>
               <Col sm="6">
                 <ParkingList />

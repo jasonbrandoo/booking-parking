@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { parkingCar } from '../actions/carAction';
 
+
 class ParkingList extends Component {
   componentDidMount() {
     this.props.parkingCar();
@@ -11,6 +12,9 @@ class ParkingList extends Component {
     const { carData } = this.props;
     return (
       <div>
+        <h4>
+Daftar tempat yang sudah terisi
+        </h4>
         <div className="grid-container">
           {
             carData.map(car => (
