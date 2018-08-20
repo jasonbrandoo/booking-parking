@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Table } from 'reactstrap';
 import { parkingCar } from '../actions/carAction';
 
 
@@ -10,31 +11,52 @@ class ParkingList extends Component {
 
   render() {
     const { carData } = this.props;
+    let x = 1;
     return (
       <div>
         <h4>
-Daftar tempat yang sudah terisi
+          Daftar tempat yang sudah terisi
         </h4>
-        <div className="grid-container">
+        <Table>
+          <thead>
+            <tr>
+              <th>
+                Slot
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Jam Masuk
+              </th>
+            </tr>
+          </thead>
           {
             carData.map(car => (
-              <div className="grid-item">
+              <tbody>
                 {car.carData.map(data => (
-                  <p>
-                    {data.carOwner}
-                  </p>
+                  <tr>
+                    <td>
+                      {x++}
+                    </td>
+                    <td>
+                      Terisi
+                    </td>
+                    <td>
+                      {data.startTime}
+                    </td>
+                  </tr>
                 ))}
-              </div>
+              </tbody>
             ))
           }
-        </div>
+        </Table>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.carData.cars);
   return {
     carData: state.carData.cars,
     parkingData: state.carData.parked,

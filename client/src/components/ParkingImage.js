@@ -6,7 +6,7 @@ const ParkingImage = () => (
     <h2 className="text-center">
     Selamat Datang Di Sistem Booking Parkir Tamini Square
     </h2>
-    {/* <img className="img-cover mb-5" src={TaminiSquare} alt="TaminiSquare" /> */}
+    <img className="img-fluid img-cover mb-5" src={TaminiSquare} alt="TaminiSquare" />
   </div>
 );
 

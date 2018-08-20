@@ -33,16 +33,6 @@ class AppNavbar extends Component {
           <NavbarBrand href="/">
 Booking-Parking
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto">
-              <NavItem>
-                <NavLink href="/">
-About
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
         </Container>
       </Navbar>
     );

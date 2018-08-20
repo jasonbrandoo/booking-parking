@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppFooter = () => (
   <footer>
-    <p className="text-center">
+    <p>
     Booking-Parking Beta System
     </p>
   </footer>
