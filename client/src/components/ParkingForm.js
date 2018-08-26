@@ -8,6 +8,7 @@ import { postDummyData } from '../actions/carAction';
 class ParkingForm extends Component {
   state = {
     dummyData: [],
+    modal: false,
   };
 
   onChange = (e) => {
@@ -22,14 +23,14 @@ class ParkingForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { dummyData } = this.state;
     this.setState({
-      dummyData,
+      modal: !this.state.modal,
     });
-    const newCar = dummyData;
-    this.props.checkForm(newCar);
-    this.props.postDummyData(newCar);
-    console.log(newCar);
+    const { dummyData } = this.state;
+    const newData = dummyData;
+    this.props.handleForm(newData);
+    this.props.postDummyData(newData);
+    console.log(this.state);
   };
 
   render() {
@@ -78,7 +79,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <Button color="dark" className="mb-5">
-              Klik
+              Klik!!!
             </Button>
           </Form>
         </Container>

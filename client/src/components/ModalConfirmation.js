@@ -15,17 +15,21 @@ class ModalConfirmation extends React.Component {
   };
 
   render() {
-    // const { modal } = this.state;
-    const { isOpen } = this.props;
+    const { modal } = this.state;
+    console.log(this.props);
     return (
       <div>
-        <Modal isOpen={isOpen} toggle={this.toggle}>
+        <p>lorem</p>
+        {/* <Modal isOpen={modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Isi Form Ini</ModalHeader>
           <ModalBody>Body Form</ModalBody>
+          <Button color="primary" onClick={this.toggle}>
+          Klik!!!
+          </Button>
           <ModalFooter>
             <small>2018</small>
           </ModalFooter>
-        </Modal>
+        </Modal> */}
       </div>
     );
   }

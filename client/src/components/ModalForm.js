@@ -7,6 +7,7 @@ import ModalConfirmation from './ModalConfirmation';
 
 class ModalForm extends React.Component {
   state = {
+    data: [],
     modal: false,
   };
 
@@ -16,9 +17,14 @@ class ModalForm extends React.Component {
     }));
   };
 
-  checkForm = (props) => {
+  handleForm = (props) => {
+    this.setState({
+      data: [...this.state.data, props.carOwner],
+    });
     this.toggle();
-  };
+    console.log(this.state);
+    console.log(props);
+  }
 
   render() {
     const { modal } = this.state;
@@ -34,8 +40,7 @@ class ModalForm extends React.Component {
         <Modal isOpen={modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Isi Form Ini</ModalHeader>
           <ModalBody>
-            <ParkingForm checkForm={this.checkForm} />
-            {/* <ModalConfirmation isOpen={this.state.modal} /> */}
+            <ParkingForm handleForm={this.handleForm} />
           </ModalBody>
           <ModalFooter>
             <small>2018</small>
