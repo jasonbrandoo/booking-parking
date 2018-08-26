@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 import {
   Form, FormGroup, Label, Input, Button, Container,
 } from 'reactstrap';
-import ModalConfirmation from './ModalConfirmation';
-import { carIn, parkingCar } from '../actions/carAction';
+import { carIn } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
-    carOwner: '',
-    carName: '',
-    plateNumber: '',
-    startTime: '',
+    carData: [
+      {
+        carOwner: '',
+        carName: '',
+        plateNumber: '',
+        startTime: '',
+      },
+    ],
   };
 
   onChange = (e) => {
@@ -26,22 +29,17 @@ class ParkingForm extends Component {
       carOwner, carName, plateNumber, startTime,
     } = this.state;
     const newCar = {
-      carData: [{
-        carOwner,
-        carName,
-        plateNumber,
-        startTime,
-      }],
+      carData: [
+        {
+          carOwner,
+          carName,
+          plateNumber,
+          startTime,
+        },
+      ],
     };
-
-    if (window.confirm('Are you sure')) {
-      alert('Success');
-      this.props.carIn(newCar);
-      this.props.parkingCar('booked');
-      console.log(newCar);
-    } else {
-      alert('Aborted');
-    }
+    this.props.checkForm(newCar);
+    // this.props.carIn(newCar);
   };
 
   render() {
@@ -50,9 +48,7 @@ class ParkingForm extends Component {
         <Container>
           <Form onSubmit={this.onSubmit}>
             <FormGroup>
-              <Label>
-            Nama
-              </Label>
+              <Label>Nama</Label>
               <Input
                 type="text"
                 name="carOwner"
@@ -62,9 +58,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label>
-            Tipe Mobil
-              </Label>
+              <Label>Tipe Mobil</Label>
               <Input
                 type="text"
                 name="carName"
@@ -74,9 +68,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label>
-            Plat Nomor
-              </Label>
+              <Label>Plat Nomor</Label>
               <Input
                 type="text"
                 name="plateNumber"
@@ -86,9 +78,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label>
-            Masuk Pada Pukul
-              </Label>
+              <Label>Masuk Pada Pukul</Label>
               <Input
                 type="time"
                 name="startTime"
@@ -98,7 +88,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <Button color="dark" className="mb-5">
-          Submit
+              Submit
             </Button>
           </Form>
         </Container>
@@ -109,5 +99,5 @@ class ParkingForm extends Component {
 
 export default connect(
   null,
-  { carIn, parkingCar },
+  { carIn },
 )(ParkingForm);

@@ -2,7 +2,12 @@
   "extends": "airbnb",
   "rules": {
     "no-console": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "max-len": "off",
+    "operator-linebreak": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": [0],
+    "react/destructuring-assignment": [0],
+    "react/prop-types": [0]
   },
   "parser": "babel-eslint"
 }

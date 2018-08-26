@@ -1,43 +1,30 @@
 import React from 'react';
 import {
-  Button, Modal, ModalHeader,
+  Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
-import ParkingForm from './ParkingForm';
 
 class ModalConfirmation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-    };
+  state = {
+    modal: false,
+  };
 
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal,
     }));
-  }
+  };
 
   render() {
-    const { modal } = this.state;
+    // const { modal } = this.state;
+    const { isOpen } = this.props;
     return (
       <div>
-        <h4>
-Selamat Datang
-        </h4>
-        <p>
-Selamat datang di sistem kami. Melalui sistem kami anda dapat melakukan reservasi tempat parkir yang sudah kami siapakan
-        </p>
-        <Button color="primary" onClick={this.toggle}>
-        Klik Disini Untuk Reservasi Tempat Parkir Anda
-        </Button>
-        <Modal isOpen={modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>
-          Isi Form Ini
-          </ModalHeader>
-          <ParkingForm />
+        <Modal isOpen={isOpen} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Isi Form Ini</ModalHeader>
+          <ModalBody>Body Form</ModalBody>
+          <ModalFooter>
+            <small>2018</small>
+          </ModalFooter>
         </Modal>
       </div>
     );

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import AppNavbar from './components/AppNavbar';
-// import AppFooter from './components/AppFooter';
-import ModalConfirmation from './components/ModalConfirmation';
+import ModalForm from './components/ModalForm';
 import ParkingList from './components/ParkingList';
 import ParkingImage from './components/ParkingImage';
 import './App.css';
@@ -20,7 +19,7 @@ class App extends Component {
           <Container>
             <Row>
               <Col sm="6">
-                <ModalConfirmation />
+                <ModalForm />
               </Col>
               <Col sm="6">
                 <ParkingList />
