@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
+import { postDummyData } from '../actions/carAction';
 import ParkingForm from './ParkingForm';
-import ModalConfirmation from './ModalConfirmation';
 
-class ModalForm extends React.Component {
+class ModalForm extends Component {
   state = {
-    data: [],
     modal: false,
   };
 
@@ -18,15 +18,12 @@ class ModalForm extends React.Component {
   };
 
   handleForm = (props) => {
-    this.setState({
-      data: [...this.state.data, props.carOwner],
-    });
+    this.props.postDummyData(props);
     this.toggle();
-    console.log(this.state);
-    console.log(props);
   }
 
   render() {
+    console.log(this.state);
     const { modal } = this.state;
     return (
       <div>
@@ -51,4 +48,7 @@ class ModalForm extends React.Component {
   }
 }
 
-export default ModalForm;
+export default connect(
+  null,
+  { postDummyData },
+)(ModalForm);

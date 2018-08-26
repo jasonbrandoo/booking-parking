@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {
   Form, FormGroup, Label, Input, Button, Container,
 } from 'reactstrap';
-import { postDummyData } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
     dummyData: [],
-    modal: false,
   };
 
   onChange = (e) => {
@@ -23,14 +20,8 @@ class ParkingForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      modal: !this.state.modal,
-    });
     const { dummyData } = this.state;
-    const newData = dummyData;
-    this.props.handleForm(newData);
-    this.props.postDummyData(newData);
-    console.log(this.state);
+    this.props.handleForm(dummyData);
   };
 
   render() {
@@ -88,7 +79,4 @@ class ParkingForm extends Component {
   }
 }
 
-export default connect(
-  null,
-  { postDummyData },
-)(ParkingForm);
+export default ParkingForm;

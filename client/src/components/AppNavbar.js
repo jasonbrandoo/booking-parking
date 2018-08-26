@@ -1,14 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Container,
-} from 'reactstrap';
 
 class AppNavbar extends Component {
   constructor(props) {
@@ -28,23 +18,18 @@ class AppNavbar extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <Navbar color="dark" dark expand="sm" className="mb-3">
-        <Container>
-          <NavbarBrand href="/">
-Booking-Parking
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto">
-              <NavItem>
-                <NavLink href="/">
-About
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Container>
-      </Navbar>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
     );
   }
 }

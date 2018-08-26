@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import AppNavbar from './components/AppNavbar';
 import ModalForm from './components/ModalForm';
 import ParkingList from './components/ParkingList';
+import AppFooter from './components/AppFooter';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store';
@@ -15,15 +16,10 @@ class App extends Component {
         <div className="App">
           <AppNavbar />
           <Container>
-            <Row>
-              <Col sm="6">
-                <ModalForm />
-              </Col>
-              <Col sm="6">
-                <ParkingList />
-              </Col>
-            </Row>
+            <ModalForm />
+            <ParkingList />
           </Container>
+          <AppFooter />
         </div>
       </Provider>
     );
