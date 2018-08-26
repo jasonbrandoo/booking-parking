@@ -3,43 +3,33 @@ import { connect } from 'react-redux';
 import {
   Form, FormGroup, Label, Input, Button, Container,
 } from 'reactstrap';
-import { carIn } from '../actions/carAction';
+import { postDummyData } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
-    carData: [
-      {
-        carOwner: '',
-        carName: '',
-        plateNumber: '',
-        startTime: '',
-      },
-    ],
+    dummyData: [],
   };
 
   onChange = (e) => {
-    this.setState({
+    const dummyData = {
+      ...this.state.dummyData,
       [e.target.name]: e.target.value,
+    };
+    this.setState({
+      dummyData,
     });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    const {
-      carOwner, carName, plateNumber, startTime,
-    } = this.state;
-    const newCar = {
-      carData: [
-        {
-          carOwner,
-          carName,
-          plateNumber,
-          startTime,
-        },
-      ],
-    };
+    const { dummyData } = this.state;
+    this.setState({
+      dummyData,
+    });
+    const newCar = dummyData;
     this.props.checkForm(newCar);
-    // this.props.carIn(newCar);
+    this.props.postDummyData(newCar);
+    console.log(newCar);
   };
 
   render() {
@@ -88,7 +78,7 @@ class ParkingForm extends Component {
               />
             </FormGroup>
             <Button color="dark" className="mb-5">
-              Submit
+              Klik
             </Button>
           </Form>
         </Container>
@@ -99,5 +89,5 @@ class ParkingForm extends Component {
 
 export default connect(
   null,
-  { carIn },
+  { postDummyData },
 )(ParkingForm);

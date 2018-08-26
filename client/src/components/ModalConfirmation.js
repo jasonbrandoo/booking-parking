@@ -5,7 +5,7 @@ import {
 
 class ModalConfirmation extends React.Component {
   state = {
-    modal: false,
+    modal: true,
   };
 
   toggle = () => {

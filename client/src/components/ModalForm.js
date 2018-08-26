@@ -8,7 +8,6 @@ import ModalConfirmation from './ModalConfirmation';
 class ModalForm extends React.Component {
   state = {
     modal: false,
-    modalConfirmation: true,
   };
 
   toggle = () => {
@@ -18,10 +17,7 @@ class ModalForm extends React.Component {
   };
 
   checkForm = (props) => {
-    console.log(props);
-    return (
-      <ModalConfirmation isOpen={this.state.modalConfirmation} />
-    );
+    this.toggle();
   };
 
   render() {
@@ -33,18 +29,13 @@ class ModalForm extends React.Component {
           Melalui sistem kami anda dapat melakukan reservasi tempat parkir yang sudah kami siapkan.
         </p>
         <Button color="primary" onClick={this.toggle}>
-          Klik Disini Untuk Reservasi Tempat Parkir Anda
+          Klik!!!
         </Button>
         <Modal isOpen={modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Isi Form Ini</ModalHeader>
           <ModalBody>
-            {
-              modal
-                ?
-                (<ParkingForm checkForm={this.checkForm} />)
-                :
-                (null)
-            }
+            <ParkingForm checkForm={this.checkForm} />
+            {/* <ModalConfirmation isOpen={this.state.modal} /> */}
           </ModalBody>
           <ModalFooter>
             <small>2018</small>
