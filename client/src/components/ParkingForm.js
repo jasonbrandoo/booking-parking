@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Form, FormGroup, Label, Input, Button, Container,
-} from 'reactstrap';
+import { connect } from 'react-redux';
+import { postDummyData } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
@@ -21,62 +20,53 @@ class ParkingForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const { dummyData } = this.state;
-    this.props.handleForm(dummyData);
+    this.props.postDummyData(dummyData);
   };
 
   render() {
     return (
-      <div>
-        <Container>
-          <Form onSubmit={this.onSubmit}>
-            <FormGroup>
-              <Label>Nama</Label>
-              <Input
-                type="text"
-                name="carOwner"
-                placeholder="Your Name"
-                onChange={this.onChange}
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Tipe Mobil</Label>
-              <Input
-                type="text"
-                name="carName"
-                placeholder="Car's Name"
-                onChange={this.onChange}
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Plat Nomor</Label>
-              <Input
-                type="text"
-                name="plateNumber"
-                placeholder="Plate Number"
-                onChange={this.onChange}
-                required
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Masuk Pada Pukul</Label>
-              <Input
-                type="time"
-                name="startTime"
-                placeholder="Start Time"
-                onChange={this.onChange}
-                required
-              />
-            </FormGroup>
-            <Button color="dark" className="mb-5">
-              Klik!!!
-            </Button>
-          </Form>
-        </Container>
+      <div className="parking-form">
+        <form onSubmit={this.onSubmit}>
+          <label id="name">Nama</label>
+          <input
+            type="text"
+            name="carOwner"
+            placeholder="Your Name"
+            onChange={this.onChange}
+            required
+          />
+          <label>Tipe Mobil</label>
+          <input
+            type="text"
+            name="carName"
+            placeholder="Car's Name"
+            onChange={this.onChange}
+            required
+          /><label>Plat Nomor</label>
+          <input
+            type="text"
+            name="plateNumber"
+            placeholder="Plate Number"
+            onChange={this.onChange}
+            required
+          /><label>Masuk Pada Pukul</label>
+          <input
+            type="time"
+            name="startTime"
+            placeholder="Start Time"
+            onChange={this.onChange}
+            required
+          />
+          <button type="submit" color="dark" className="mb-5">
+          Klik!!!
+          </button>
+        </form>
       </div>
     );
   }
 }
 
-export default ParkingForm;
+export default connect(
+  null,
+  { postDummyData },
+)(ParkingForm);
