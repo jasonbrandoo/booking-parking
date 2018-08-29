@@ -19,9 +19,9 @@ class App extends Component {
               <ModalForm />
               <ParkingList />
               <ParkingForm />
-              <AppFooter />
             </div>
           </div>
+          <AppFooter />
         </div>
       </Provider>
     );

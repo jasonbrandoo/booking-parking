@@ -12,12 +12,13 @@ body {
 .container {
   width: 80%;
   margin: auto;
+  min-height: calc(100vh - 60px);
 }
 
 header {
   width: 100%;
   background-color: #444;
-  padding: 0.5rem 0.5rem 0.5rem 5rem;
+  padding: 2rem;
 }
 
 ul {
@@ -31,40 +32,49 @@ li {
 
 li a {
   text-decoration: none;
-  padding: 0 1rem 0 0;
-  font-size: 1.5rem;
-  color: #fff
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: violet;
+  border-radius: 5px;
 }
 
 a:hover{
-  color: blue;
+  padding: 1.2rem;
 }
 
 .grid-box {
+  margin-top: 2px;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 5px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
     "a b"
-    "c d"
-    "e e";
+    "c c";
 }
 
 .modal-form {
+  border: 3px black solid;
+  border-radius: 15px;
   grid-area: a;
   background-color: yellow;
   padding: 1rem;
 }
 
 .parking-list {
-  grid-area: b;
+  border: 3px black solid;
+  border-radius: 15px;
+  grid-area: c;
   background-color: lightblue;
   padding: 1rem;
 }
 
 .parking-form {
-  grid-area: c;
+  border: 3px black solid;
+  border-radius: 15px;
+  grid-area: b;
   background-color: orange;
   padding: 1rem;
 }
@@ -72,13 +82,50 @@ a:hover{
 .grid-container {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .grid-item {
+  grid-area: a;
   background-color: rgb(0, 255, 0);
   border: 1px solid;
-  border-radius: 95%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.grid-item-b {
+  grid-area: b;
+  background-color: rgb(0, 255, 0);
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.grid-item-c {
+  grid-area: c;
+  background-color: rgb(0, 255, 0);
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.grid-item-d {
+  grid-area: d;
+  background-color: rgb(0, 255, 0);
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.grid-item-e {
+  grid-area: e;
+  background-color: rgb(0, 255, 0);
+  border: 1px solid;
+  border-radius: 10px;
   text-align: center;
   padding: 10px;
 }
@@ -98,6 +145,13 @@ form button {
 }
 
 footer {
-  grid-area: e;
   height: 60px;
+  padding: 1rem;
+  background-color: #444;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+  color: #fff;
 }

@@ -4,26 +4,42 @@ import { postDummyData } from '../actions/carAction';
 
 class ParkingForm extends Component {
   state = {
-    dummyData: [],
+    carOwner: '',
+    carType: '',
+    plateNumber: '',
+    startTime: '',
   };
 
   onChange = (e) => {
-    const dummyData = {
-      ...this.state.dummyData,
-      [e.target.name]: e.target.value,
-    };
     this.setState({
-      dummyData,
+      [e.target.name]: e.target.value,
     });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { dummyData } = this.state;
-    this.props.postDummyData(dummyData);
+    const {
+      carOwner, carType, plateNumber, startTime,
+    } = this.state;
+    const userData = {
+      carOwner,
+      carType,
+      plateNumber,
+      startTime,
+    };
+    this.props.postDummyData(userData);
+    this.setState({
+      carOwner: '',
+      carType: '',
+      plateNumber: '',
+      startTime: '',
+    });
   };
 
   render() {
+    const {
+      carOwner, carType, plateNumber, startTime,
+    } = this.state;
     return (
       <div className="parking-form">
         <form onSubmit={this.onSubmit}>
@@ -33,14 +49,16 @@ class ParkingForm extends Component {
             name="carOwner"
             placeholder="Your Name"
             onChange={this.onChange}
+            value={carOwner}
             required
           />
           <label>Tipe Mobil</label>
           <input
             type="text"
-            name="carName"
+            name="carType"
             placeholder="Car's Name"
             onChange={this.onChange}
+            value={carType}
             required
           /><label>Plat Nomor</label>
           <input
@@ -48,6 +66,7 @@ class ParkingForm extends Component {
             name="plateNumber"
             placeholder="Plate Number"
             onChange={this.onChange}
+            value={plateNumber}
             required
           /><label>Masuk Pada Pukul</label>
           <input
@@ -55,6 +74,7 @@ class ParkingForm extends Component {
             name="startTime"
             placeholder="Start Time"
             onChange={this.onChange}
+            value={startTime}
             required
           />
           <button type="submit" color="dark" className="mb-5">

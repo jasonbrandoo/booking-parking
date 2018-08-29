@@ -10,6 +10,7 @@ const initialState = {
       carType: 'Mazda',
       plateNumber: '1234',
       startTime: '10:00',
+      status: true,
     },
   ],
   loading: false,

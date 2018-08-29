@@ -9,6 +9,7 @@ class ParkingList extends Component {
 
   render() {
     const { dummyCars } = this.props.carData;
+    console.log(dummyCars);
     return (
       <div className="parking-list">
         <h4>Daftar tempat yang sudah terisi</h4>
