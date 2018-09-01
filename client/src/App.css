@@ -45,7 +45,7 @@ a:hover{
 }
 
 .grid-box {
-  margin-top: 2px;
+  margin: 10px 0;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr;
@@ -86,43 +86,6 @@ a:hover{
 }
 
 .grid-item {
-  grid-area: a;
-  background-color: rgb(0, 255, 0);
-  border: 1px solid;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
-.grid-item-b {
-  grid-area: b;
-  background-color: rgb(0, 255, 0);
-  border: 1px solid;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
-.grid-item-c {
-  grid-area: c;
-  background-color: rgb(0, 255, 0);
-  border: 1px solid;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
-.grid-item-d {
-  grid-area: d;
-  background-color: rgb(0, 255, 0);
-  border: 1px solid;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
-.grid-item-e {
-  grid-area: e;
   background-color: rgb(0, 255, 0);
   border: 1px solid;
   border-radius: 10px;
@@ -141,7 +104,9 @@ form input {
 }
 
 form button {
-  margin: 1px;
+  margin: 12px;
+  width: 50%;
+  cursor: pointer;
 }
 
 footer {

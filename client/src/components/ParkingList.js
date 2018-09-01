@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { dummyData } from '../actions/carAction';
+import React from 'react';
+import Empty from './Empty';
 
-class ParkingList extends Component {
-  componentDidMount() {
-    this.props.dummyData();
-  }
-
-  render() {
-    const { dummyCars } = this.props.carData;
-    console.log(dummyCars);
-    return (
-      <div className="parking-list">
+const ParkingList = ({ list, space }) => {
+  const renderParkingList = () => {
+    if (space.freeSpace === 10) {
+      return <Empty />;
+    } return (
+      <div className="parking">
         <h4>Daftar tempat yang sudah terisi</h4>
+        <p>Sisa tempat {space.freeSpace}</p>
         <div className="grid-container">
-          {dummyCars.map(car => (
+          {list.map(car => (
             <div className="grid-item" key={car.carOwner}>
               <p>{car.startTime}</p>
             </div>
@@ -22,14 +18,10 @@ class ParkingList extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+  return (
+    <div className="parking-list">{renderParkingList()}</div>
+  );
+};
 
-const mapStateToProps = state => ({
-  carData: state.carData,
-});
-
-export default connect(
-  mapStateToProps,
-  { dummyData },
-)(ParkingList);
+export default ParkingList;

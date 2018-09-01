@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  PARKING_CAR, CAR_IN, CAR_LOADING, DUMMY_DATA, POST_DUMMY_DATA,
+  PARKING_CAR, CAR_IN, CAR_LOADING, POST_DUMMY_DATA, CURRENT_SPACE,
 } from './types';
 
 export const setCarLoading = () => ({
@@ -28,11 +28,12 @@ export const carIn = car => (dispatch) => {
     .catch(error => console.log(error));
 };
 
-export const dummyData = () => ({
-  type: DUMMY_DATA,
-});
-
 export const postDummyData = data => ({
   type: POST_DUMMY_DATA,
+  payload: data,
+});
+
+export const currentSpace = data => ({
+  type: CURRENT_SPACE,
   payload: data,
 });

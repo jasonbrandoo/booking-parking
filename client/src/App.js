@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React from 'react';
+import store from './store';
 import AppNavbar from './components/AppNavbar';
-import ModalForm from './components/ModalForm';
 import ParkingForm from './components/ParkingForm';
 import ParkingList from './components/ParkingList';
 import AppFooter from './components/AppFooter';
 import './App.css';
-import store from './store';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <AppNavbar />
-          <div className="container">
-            <div className="grid-box">
-              <ModalForm />
-              <ParkingList />
-              <ParkingForm />
-            </div>
+const App = () => {
+  const { car, space } = store.getState();
+  return (
+    <div className="App">
+      <AppNavbar />
+      <div className="container">
+        <div className="grid-box">
+          <div className="modal-form">
+            <h4>Selamat Datang</h4>
+            <p>
+              Melalui sistem kami anda dapat melakukan reservasi tempat parkir yang sudah kami siapkan.
+            </p>
           </div>
-          <AppFooter />
+          <ParkingList list={car} space={space} />
+          <ParkingForm />
         </div>
-      </Provider>
-    );
-  }
-}
+      </div>
+      <AppFooter />
+    </div>
+  );
+};
 
 export default App;

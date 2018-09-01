@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { postDummyData } from '../actions/carAction';
+import store from '../store';
+import { postDummyData, currentSpace } from '../actions/Action';
 
 class ParkingForm extends Component {
   state = {
@@ -27,7 +27,8 @@ class ParkingForm extends Component {
       plateNumber,
       startTime,
     };
-    this.props.postDummyData(userData);
+    store.dispatch(postDummyData(userData));
+    store.dispatch(currentSpace(e.type));
     this.setState({
       carOwner: '',
       carType: '',
@@ -77,7 +78,7 @@ class ParkingForm extends Component {
             value={startTime}
             required
           />
-          <button type="submit" color="dark" className="mb-5">
+          <button type="submit">
           Klik!!!
           </button>
         </form>
@@ -86,7 +87,4 @@ class ParkingForm extends Component {
   }
 }
 
-export default connect(
-  null,
-  { postDummyData },
-)(ParkingForm);
+export default ParkingForm;
