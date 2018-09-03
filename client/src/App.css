@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(71, 71, 71);
 }
 
 .container {
@@ -17,27 +18,27 @@ body {
 
 header {
   width: 100%;
-  background-color: #444;
-  padding: 2rem;
+  background-color: rgb(70, 70, 255);
+  padding: 1rem;
 }
 
-ul {
+ul.flex-navbar {
   margin: 0;
   padding: 0;
+  list-style: none;
+  display: flex;
 }
 
-li {
-  display: inline;
+li.register{
+  margin-left: auto;
 }
 
 li a {
   text-decoration: none;
   padding: 1rem;
   margin-right: 1rem;
-  font-size: 1rem;
+  font-size: 2rem;
   color: #fff;
-  background-color: violet;
-  border-radius: 5px;
 }
 
 a:hover{
@@ -45,9 +46,9 @@ a:hover{
 }
 
 .grid-box {
-  margin: 10px 0;
+  padding: 5rem 0;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 1rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
@@ -55,15 +56,14 @@ a:hover{
     "c c";
 }
 
-.modal-form {
-  border: 3px black solid;
+.main {
   border-radius: 15px;
   grid-area: a;
   background-color: yellow;
   padding: 1rem;
 }
 
-.parking-list {
+.main-list {
   border: 3px black solid;
   border-radius: 15px;
   grid-area: c;
@@ -71,7 +71,7 @@ a:hover{
   padding: 1rem;
 }
 
-.parking-form {
+.main-form {
   border: 3px black solid;
   border-radius: 15px;
   grid-area: b;
@@ -79,13 +79,13 @@ a:hover{
   padding: 1rem;
 }
 
-.grid-container {
+.list-container {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.grid-item {
+.list-item {
   background-color: rgb(0, 255, 0);
   border: 1px solid;
   border-radius: 10px;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import store from '../store';
-import { postDummyData, currentSpace } from '../actions/Action';
 
 class ParkingForm extends Component {
   state = {
@@ -21,20 +19,20 @@ class ParkingForm extends Component {
     const {
       carOwner, carType, plateNumber, startTime,
     } = this.state;
-    const userData = {
+    const data = {
       carOwner,
       carType,
       plateNumber,
       startTime,
     };
-    store.dispatch(postDummyData(userData));
-    store.dispatch(currentSpace(e.type));
+    this.props.postDummyData(data);
     this.setState({
       carOwner: '',
       carType: '',
       plateNumber: '',
       startTime: '',
     });
+    console.log(this.state);
   };
 
   render() {
@@ -42,9 +40,11 @@ class ParkingForm extends Component {
       carOwner, carType, plateNumber, startTime,
     } = this.state;
     return (
-      <div className="parking-form">
+      <div className="main-form">
         <form onSubmit={this.onSubmit}>
-          <label id="name">Nama</label>
+          <label id="name">
+            Nama
+          </label>
           <input
             type="text"
             name="carOwner"
@@ -53,7 +53,9 @@ class ParkingForm extends Component {
             value={carOwner}
             required
           />
-          <label>Tipe Mobil</label>
+          <label>
+            Tipe Mobil
+          </label>
           <input
             type="text"
             name="carType"
@@ -61,7 +63,10 @@ class ParkingForm extends Component {
             onChange={this.onChange}
             value={carType}
             required
-          /><label>Plat Nomor</label>
+          />
+          <label>
+            Plat Nomor
+          </label>
           <input
             type="text"
             name="plateNumber"
@@ -69,7 +74,10 @@ class ParkingForm extends Component {
             onChange={this.onChange}
             value={plateNumber}
             required
-          /><label>Masuk Pada Pukul</label>
+          />
+          <label>
+            Masuk Pada Pukul
+          </label>
           <input
             type="time"
             name="startTime"
@@ -79,7 +87,7 @@ class ParkingForm extends Component {
             required
           />
           <button type="submit">
-          Klik!!!
+            Klik!!!
           </button>
         </form>
       </div>

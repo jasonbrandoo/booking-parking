@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AppFooter = () => (
+const Footer = () => (
   <footer>
     <p>
     Booking-Parking Beta System
@@ -8,4 +8,4 @@ const AppFooter = () => (
   </footer>
 );
 
-export default AppFooter;
+export default Footer;

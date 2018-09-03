@@ -4,7 +4,8 @@ export const CAR_IN = 'CAR_IN';
 export const CAR_LOADING = 'CAR_LOADING';
 
 /* DUMMY DATA */
-export const DUMMY_DATA = 'DUMMY_DATA';
+export const REQUEST_DUMMY_DATA = 'REQUEST_DUMMY_DATA';
+export const RECEIVE_DUMMY_DATA = 'RECEIVE_DUMMY_DATA';
 export const POST_DUMMY_DATA = 'POST_DUMMY_DATA';
 
 /* SPACE */
