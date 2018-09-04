@@ -14,16 +14,6 @@ const Navbar = () => (
             Service
           </a>
         </li>
-        <li className="register">
-          <a href="index.html">
-            Regsiter
-          </a>
-        </li>
-        <li>
-          <a href="about.html">
-            Login
-          </a>
-        </li>
       </ul>
     </nav>
   </header>

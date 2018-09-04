@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(71, 71, 71);
+  background-color: rgb(51, 51, 51);
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 
 header {
   width: 100%;
-  background-color: rgb(70, 70, 255);
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
 }
 
@@ -38,11 +38,12 @@ li a {
   padding: 1rem;
   margin-right: 1rem;
   font-size: 2rem;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 a:hover{
-  padding: 1.2rem;
+  color: aqua;
+  transition: color 2s ease-out;
 }
 
 .grid-box {
@@ -59,24 +60,28 @@ a:hover{
 .main {
   border-radius: 15px;
   grid-area: a;
-  background-color: yellow;
+  background-color: rgb(100, 100, 100);
+  box-shadow: 5px 5px 3px rgb(0, 0, 0);
   padding: 1rem;
+  animation: main 3s linear;
 }
 
 .main-list {
-  border: 3px black solid;
   border-radius: 15px;
   grid-area: c;
-  background-color: lightblue;
+  background-color: rgb(100, 100, 100);
+  box-shadow: 5px 5px 3px rgb(0, 0, 0);
   padding: 1rem;
+  animation: main 3s linear;
 }
 
 .main-form {
-  border: 3px black solid;
   border-radius: 15px;
   grid-area: b;
-  background-color: orange;
+  background-color: rgb(100, 100, 100);
+  box-shadow: 5px 5px 3px rgb(0, 0, 0);
   padding: 1rem;
+  animation: main 3s linear;
 }
 
 .list-container {
@@ -103,6 +108,10 @@ form input {
   padding: 0.2rem
 }
 
+input:focus {
+  color: red;
+}
+
 form button {
   margin: 12px;
   width: 50%;
@@ -119,4 +128,13 @@ footer p {
   margin: 0;
   text-align: center;
   color: #fff;
+}
+
+@keyframes main {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 100%;   
+  }
 }
