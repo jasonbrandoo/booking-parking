@@ -1,17 +1,16 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import './App.css';
+import { Container } from 'reactstrap';
+import NavigationBar from './components/NavigationBar';
+import DataContainer from './container/DataContainer';
 
 const App = () => (
-  <div className="App">
-    <Navbar />
-    <div className="container">
-      <Main />
-    </div>
-    <Footer />
-  </div>
+  <React.Fragment>
+    <NavigationBar />
+    <Container>
+      <DataContainer />
+    </Container>
+  </React.Fragment>
+
 );
 
 export default App;

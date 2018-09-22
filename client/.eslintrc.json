@@ -2,13 +2,7 @@
   "extends": "airbnb",
   "rules": {
     "no-console": "off",
-    "prefer-destructuring": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/destructuring-assignment": [0],
-    "react/prop-types": [0],
-    "jsx-a11y/label-has-for": [0]
-    
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "parser": "babel-eslint"
 }
