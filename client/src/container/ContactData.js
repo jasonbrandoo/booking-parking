@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Contact from '../components/contact/Contact';
 
-class DataContainer extends Component {
+const WithData = WrappedComponent => class extends Component {
   constructor() {
     super();
     this.state = {
@@ -38,9 +37,9 @@ class DataContainer extends Component {
         </h1>
       );
     } return (
-      <Contact contact={data} />
+      <WrappedComponent {...this.props} contact={data} />
     );
   }
-}
+};
 
-export default DataContainer;
+export default WithData;

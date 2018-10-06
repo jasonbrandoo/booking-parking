@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
 } from 'reactstrap';
 
 class NavigationBar extends Component {
@@ -26,26 +25,26 @@ state = {
     const { isOpen } = this.state;
     return (
       <div>
-        <Navbar color="dark" expand="md" className="text-light">
-          <NavbarBrand>
+        <Navbar color="dark" expand="md">
+          <NavLink to="/" className="navbar-brand text-light">
             Contact Management
-          </NavbarBrand>
+          </NavLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink>
-                  Add
+                <NavLink to="/add" className="nav-link text-light">
+                    Add
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>
-                  Update
+                <NavLink to="/update" className="nav-link text-light">
+                    Update
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>
-                  Delete
+                <NavLink to="/delete" className="nav-link text-light">
+                    Delete
                 </NavLink>
               </NavItem>
             </Nav>

@@ -1,4 +1,5 @@
 import React from 'react';
+import WithData from '../../container/ContactData';
 import ContactList from './ContactList';
 
 const Contact = ({ contact }) => (
@@ -14,4 +15,4 @@ const Contact = ({ contact }) => (
   </React.Fragment>
 );
 
-export default Contact;
+export default WithData(Contact);
