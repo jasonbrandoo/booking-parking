@@ -10,22 +10,20 @@ import {
 } from 'reactstrap';
 
 class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
+state = {
+  isOpen: false,
+};
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-    };
-  }
 
-  toggle() {
+  toggle = () => {
+    const { isOpen } = this.state;
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpen: !isOpen,
     });
   }
 
   render() {
+    const { isOpen } = this.state;
     return (
       <div>
         <Navbar color="dark" expand="md" className="text-light">
@@ -33,7 +31,7 @@ class NavigationBar extends Component {
             Contact Management
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink>

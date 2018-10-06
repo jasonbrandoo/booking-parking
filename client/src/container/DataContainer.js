@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Contact from '../components/contact/Contact';
 
 class DataContainer extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class DataContainer extends Component {
 
   componentDidMount() {
     axios
-      .get('/contact/')
+      .get('/dummy/')
       .then((res) => {
         this.setState({
           data: res.data,
@@ -37,9 +38,7 @@ class DataContainer extends Component {
         </h1>
       );
     } return (
-      <h1>
-        Yess
-      </h1>
+      <Contact contact={data} />
     );
   }
 }
