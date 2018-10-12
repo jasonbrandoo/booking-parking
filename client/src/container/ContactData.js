@@ -37,7 +37,7 @@ const WithData = WrappedComponent => class extends Component {
         </h1>
       );
     } return (
-      <WrappedComponent {...this.props} contact={data} />
+      <WrappedComponent {...this.props} contact={data} total={data.length} />
     );
   }
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 const ContactList = ({ list }) => (
-  <Table className="mt-5 table-bordered">
+  <Table className="mt-1 table-bordered">
     <thead className="thead-dark">
       <tr>
         <th>
